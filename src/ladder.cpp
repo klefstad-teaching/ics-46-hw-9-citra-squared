@@ -5,6 +5,11 @@ void error(string word1, string word2, string msg) {
 }
 
 vector<string> generate_word_ladder(const string& begin_word, const string& end_word, const set<string>& word_list) {
+    if (begin_word == end_word) {
+        error(begin_word, end_word, "words shouldn't be the same");
+        return {};
+    }
+    
     queue<vector<string>> ladder_queue; 
     ladder_queue.push({begin_word}); 
 
@@ -105,9 +110,13 @@ void load_words(set<string> & word_list, const string& file_name) {
 }
 
 void print_word_ladder(const vector<string>& ladder) {
+    if (ladder.size() == 0) {
+        std::cout << "No word ladder found.";
+    }
     for (auto word : ladder) {
         std::cout << word << " ";
     }
+    std::cout << "\n"; 
 }
 
 void my_assert(int a, int b) {

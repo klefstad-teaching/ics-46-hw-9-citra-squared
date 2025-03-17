@@ -5,8 +5,6 @@ int main() {
     set<string> word_list;
     load_words(word_list, "src/words.txt");
 
-    std::cout << "HERE" << std::endl;
-
     vector<string> word_ladder = generate_word_ladder("code", "data", word_list); 
 
     std::cout << "HERE2" << std::endl;
